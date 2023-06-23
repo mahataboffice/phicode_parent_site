@@ -1,0 +1,61 @@
+<header class="header" id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href="./index.html"><img style="filter: invert(100%); margin-right: .5rem;" src="phi_logo.png"
+                            alt="">Phicode.io</a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="header__nav__option">
+                    <nav class="header__nav__menu mobile-menu">
+                        <ul id="myDIV">
+                            <li onclick="menuClicked('home')" class="active"><a href="#home" >Home</a></li>
+                            <li onclick="menuClicked('products')"><a href="#products">Products</a></li>
+                            <li onclick="menuClicked('service')"><a href="#service">Services</a></li>
+                            <li onclick="menuClicked('about')"><a href="#about">About</a></li>
+                            <li onclick="menuClicked('contact')"><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+
+<script>
+    const lis = $('nav ul li').get()
+    const maps = {'home':0, 'products':1, 'service':2, 'about':3, 'contact':4}
+    
+    function menuClicked(menu){
+        const activeBtn = document.querySelector(".active")
+        activeBtn.classList.remove('active')
+        const li = lis[maps[menu]]
+        li.setAttribute('class', 'active')
+    }
+
+</script>
+
+<script>
+    window.onscroll = function(){stickeyFun()}
+    const header = document.getElementById('header');
+    const stickey = header.offsetTop;
+    
+    function stickeyFun(){
+        if(window.pageYOffset > stickey) header.classList.add('sticky')
+            else header.classList.remove('sticky')
+        }
+
+</script>
+<style>
+    .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  
+}
+</style>
+
